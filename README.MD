@@ -12,4 +12,4 @@ git clone https://github.com/numansafi/yieldify.git
 
 OR
 
-Download the [yieldify](https://github.com/numansafi/butternut/archive/refs/heads/master.zip) repo as a zip file
+Download the [yieldify](https://github.com/numansafi/yieldify/archive/refs/heads/master.zip) repo as a zip file
