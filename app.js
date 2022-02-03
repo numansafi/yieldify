@@ -3,6 +3,7 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const width = (canvas.width = window.innerWidth - 100);
 const height = (canvas.height = window.innerHeight - 100);
+const rect = canvas.getBoundingClientRect();
 
 //balls Array
 let balls = [];
@@ -72,6 +73,8 @@ function createBalls(e) {
   }
 }
 
+document.addEventListener("click", createBalls, false);
+
 // Render Canvas and animate the balls
 function main() {
   // creates a black canvas to display on the webpage
@@ -92,6 +95,8 @@ function main() {
   for (let i = 0; i < balls.length; i++) {
     balls[i].update();
     balls[i].draw();
+
+    bounceBalls();
   }
   requestAnimationFrame(main);
 }
@@ -102,18 +107,22 @@ const bounce = -0.8;
 function bounceBalls() {
   for (let i = balls.length - 1; i >= 0; i -= 1) {
     let ball = balls[i];
+    // change ball direction when right wall is hit
     if (ball.x + ball.radius > width) {
       ball.x = width - ball.radius;
       ball.vX = ball.vX * bounce;
     }
+    // change ball direction when left wall is hit
     if (ball.x - ball.radius < 0) {
       ball.x = ball.radius;
       ball.vX = ball.vX * bounce;
     }
+    // change ball direction when bottom wall is hit
     if (ball.y + ball.radius > height) {
       ball.y = height - ball.radius;
       ball.vY = ball.vY * bounce;
     }
+    // change ball direction when top wall is hit
     if (ball.y - ball.radius < 0) {
       ball.y = ball.radius;
       ball.vY = ball.vY * bounce;
