@@ -36,6 +36,7 @@ const ballPrototype = {
     balls.push(ball);
     return ball;
   },
+  // Allows the ball to move around the canvas
   update: function () {
     this.vX *= this.friction;
     this.vY *= this.friction;
@@ -44,5 +45,11 @@ const ballPrototype = {
 
     this.x += this.vX;
     this.y += this.vY;
+  },
+  // draws the circular balls on the canvas with specified params
+  draw: function () {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+    ctx.fill();
   },
 };
