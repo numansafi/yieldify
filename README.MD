@@ -2,8 +2,6 @@
 
 This code was written using HTML,CSS and JavaScript.
 
-I'm not too familiar with ruby modules, therefore I did not use it.
-
 ## Running the Game
 
 Clone the repo in CLI
