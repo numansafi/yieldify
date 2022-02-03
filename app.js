@@ -53,3 +53,20 @@ const ballPrototype = {
     ctx.fill();
   },
 };
+
+function createBalls(e) {
+  for (let i = 0; i < 1; i++) {
+    const radius = 15;
+    const gravity = 0.3;
+
+    // Ball starting position given by the coordinates of the mouse click
+    let posX = e.clientX - rect.left;
+    let posY = e.clientY - rect.top;
+
+    let speed = Math.random() * 15;
+    let angle = Math.random() * Math.PI * 2;
+
+    //ball creation (x, y, radius, direction, speed, gravity)
+    ballPrototype.create(posX, posY, radius, angle, speed, gravity);
+  }
+}
