@@ -95,4 +95,29 @@ function main() {
   }
   requestAnimationFrame(main);
 }
+
+//bouncing of balls
+const bounce = -0.8;
+
+function bounceBalls() {
+  for (let i = balls.length - 1; i >= 0; i -= 1) {
+    let ball = balls[i];
+    if (ball.x + ball.radius > width) {
+      ball.x = width - ball.radius;
+      ball.vX = ball.vX * bounce;
+    }
+    if (ball.x - ball.radius < 0) {
+      ball.x = ball.radius;
+      ball.vX = ball.vX * bounce;
+    }
+    if (ball.y + ball.radius > height) {
+      ball.y = height - ball.radius;
+      ball.vY = ball.vY * bounce;
+    }
+    if (ball.y - ball.radius < 0) {
+      ball.y = ball.radius;
+      ball.vY = ball.vY * bounce;
+    }
+  }
+}
 main();
