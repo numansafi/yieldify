@@ -54,6 +54,7 @@ const ballPrototype = {
   },
 };
 
+// Creates a new ball when function is called upon with different params
 function createBalls(e) {
   for (let i = 0; i < 1; i++) {
     const radius = 15;
@@ -70,3 +71,28 @@ function createBalls(e) {
     ballPrototype.create(posX, posY, radius, angle, speed, gravity);
   }
 }
+
+// Render Canvas and animate the balls
+function main() {
+  // creates a black canvas to display on the webpage
+  const grd = ctx.createLinearGradient(0, 0, width, 0);
+  grd.addColorStop(0, "black");
+
+  ctx.fillStyle = grd;
+  ctx.fillRect(0, 0, width, height);
+
+  //balls color
+  ctx.fillStyle = "white";
+
+  // text within the canvas
+  ctx.font = "20px sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillText("Click to add more balls", width / 2, height / 2);
+
+  for (let i = 0; i < balls.length; i++) {
+    balls[i].update();
+    balls[i].draw();
+  }
+  requestAnimationFrame(main);
+}
+main();
