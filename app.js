@@ -36,4 +36,13 @@ const ballPrototype = {
     balls.push(ball);
     return ball;
   },
+  update: function () {
+    this.vX *= this.friction;
+    this.vY *= this.friction;
+
+    this.vY += this.gravity;
+
+    this.x += this.vX;
+    this.y += this.vY;
+  },
 };
